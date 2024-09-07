@@ -61,9 +61,24 @@ string.addEventListener("mouseleave", () => {
 
 let main = document.querySelector("main");
 main.addEventListener("mousemove", (mouseEvent) => {
-  gsap.to(".cursor", {
+  gsap.to("#cursor", {
     x: mouseEvent.x,
     y: mouseEvent.y,
     ease: "back.out",
   });
+});
+let cursor = document.querySelector("#cursor");
+let img = document.querySelector("#image");
+img.addEventListener("mouseenter", () => {
+  ((cursor.innerHTML = `<p style="font-size: 0.3rem; line-height:.3rem">View More</p>`),
+  (cursor.style.backgroundColor = "#ffffff8a")),
+    gsap.to("#cursor", {
+      scale: 4,
+    });
+});
+img.addEventListener("mouseleave", () => {
+  ((cursor.innerHTML = ""), (cursor.style.backgroundColor = "#fff")),
+    gsap.to("#cursor", {
+      scale: 1,
+    });
 });

@@ -7,7 +7,10 @@
     <title>Document</title>
   </head>
   <body>
-      <div class="cursor w-5 h-5 bg-white fixed rounded-full"></div>
+    <div
+      id="cursor"
+      class="w-5 h-5 bg-white fixed flex justify-center items-center rounded-full text-center z-10"
+    ></div>
     <main class="h-full w-screen p-10 bg-black text-white">
       <div class="string w-full h-52 flex justify-center">
         <svg width="1400" height="200" xmlns="http://www.w3.org/2000/svg">
@@ -31,8 +34,16 @@
         Playing with Animations
       </h2>
       <div class="box h-72 w-72 bg-red-500"></div>
-      <div id="image" class="flex items-center justify-center">
-        <img class="w-96 h-52" src="https://images.unsplash.com/photo-1725113114015-7d65ebd4f2bb?q=80&w=1932&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt="">
+      <div
+        id="image"
+        class="flex items-center justify-center relative"
+      >
+        <div class="overlay w-full h-full absolute bg-transparent z-20"></div>
+        <img
+          class="w-96 h-52 object-cover"
+          src="https://images.unsplash.com/photo-1725113114015-7d65ebd4f2bb?q=80&w=1932&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+          alt=""
+        />
       </div>
       <div class="box2 h-72 w-72 bg-blue-500"></div>
       <h1>This is a h1</h1>
