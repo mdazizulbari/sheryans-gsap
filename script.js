@@ -107,15 +107,28 @@ hideMenu.addEventListener("click", () => tl2.reverse());
 let textAnimation = document.querySelector("#textAnimation");
 let textAnimationText = document.querySelector("#textAnimation").textContent;
 let splitedText = textAnimationText.split("");
+let halfTextLength = splitedText.length/2
 let clutter = "";
-splitedText.forEach((elem) => {
-  clutter += `<span class="inline-block">${elem}</span>`;
+splitedText.forEach((element, index) => {
+  if(index<halfTextLength){
+  clutter += `<span class="inline-block a">${element}</span>`;
+  } else{
+  clutter += `<span class="inline-block b">${element}</span>`;
+  }
 });
+console.log(clutter)
 textAnimation.innerHTML = clutter;
-gsap.from("#textAnimation span",{
+gsap.from("#textAnimation .a",{
   y:100,
   opacity: 0,
   duration: .5,
   delay: 1,
   stagger: 0.1,
+})
+gsap.from("#textAnimation .b",{
+  y:100,
+  opacity: 0,
+  duration: .5,
+  delay: 1,
+  stagger: -0.1,
 })
