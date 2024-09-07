@@ -25,18 +25,36 @@ gsap.from("h1", {
   stagger: 0.3,
 });
 
-let tl = gsap.timeline()
-tl.from("nav p",{
-    y: -30,
-    stagger: .4,
-    delay: 1,
-    opacity: 0,
-    duration: 1,
-})
-gsap.from(".frontText",{
-    y: 20,
-    delay: 1,
-    opacity: 0,
-    duration: 3,
-    scale: .4
-})
+let tl = gsap.timeline();
+tl.from("nav p", {
+  y: -30,
+  stagger: 0.4,
+  delay: 1,
+  opacity: 0,
+  duration: 1,
+});
+gsap.from(".frontText", {
+  y: 20,
+  delay: 1,
+  opacity: 0,
+  duration: 3,
+  scale: 0.4,
+});
+
+let finalPath = `M 10 100 Q 700 100 1390 100`;
+let string = document.querySelector(".string");
+string.addEventListener("mousemove", (details) => {
+  let path = `M 10 100 Q ${details.x} ${details.y} 1390 100`;
+  gsap.to("svg path", {
+    attr: { d: path },
+    duration: 0.1,
+    ease: "power3.easeOut",
+  });
+});
+string.addEventListener("mouseleave", (details) => {
+  gsap.to("svg path", {
+    attr: { d: finalPath },
+    duration: 1.5,
+    ease: "elastic.out(1,0.2)",
+  });
+});
