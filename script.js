@@ -82,3 +82,24 @@ img.addEventListener("mouseleave", () => {
       scale: 1,
     });
 });
+
+let showMenu = document.querySelector("#showMenu");
+let hideMenu = document.querySelector("#hideMenu");
+let tl2 = gsap.timeline();
+tl2.to("#sidebar", {
+  right: 0,
+  duration: 0.2,
+});
+tl2.from("#sidebar p", {
+  x: 150,
+  opacity: 0,
+  duration: 0.2,
+  stagger: 0.1,
+});
+tl2.from("#sidebar i", {
+  opacity: 0,
+  scale: 0.8,
+});
+tl2.pause();
+showMenu.addEventListener("click", ()=> tl2.play())
+hideMenu.addEventListener("click", ()=> tl2.reverse())
