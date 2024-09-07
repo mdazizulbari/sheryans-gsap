@@ -101,5 +101,21 @@ tl2.from("#sidebar i", {
   scale: 0.8,
 });
 tl2.pause();
-showMenu.addEventListener("click", ()=> tl2.play())
-hideMenu.addEventListener("click", ()=> tl2.reverse())
+showMenu.addEventListener("click", () => tl2.play());
+hideMenu.addEventListener("click", () => tl2.reverse());
+
+let textAnimation = document.querySelector("#textAnimation");
+let textAnimationText = document.querySelector("#textAnimation").textContent;
+let splitedText = textAnimationText.split("");
+let clutter = "";
+splitedText.forEach((elem) => {
+  clutter += `<span class="inline-block">${elem}</span>`;
+});
+textAnimation.innerHTML = clutter;
+gsap.from("#textAnimation span",{
+  y:100,
+  opacity: 0,
+  duration: .5,
+  delay: 1,
+  stagger: 0.1,
+})
