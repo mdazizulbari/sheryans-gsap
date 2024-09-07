@@ -43,18 +43,27 @@ gsap.from(".frontText", {
 
 let finalPath = `M 10 100 Q 700 100 1390 100`;
 let string = document.querySelector(".string");
-string.addEventListener("mousemove", (details) => {
-  let path = `M 10 100 Q ${details.x} ${details.y} 1390 100`;
+string.addEventListener("mousemove", (mouseEvent) => {
+  let path = `M 10 100 Q ${mouseEvent.x} ${mouseEvent.y} 1390 100`;
   gsap.to("svg path", {
     attr: { d: path },
     duration: 0.1,
     ease: "power3.easeOut",
   });
 });
-string.addEventListener("mouseleave", (details) => {
+string.addEventListener("mouseleave", () => {
   gsap.to("svg path", {
     attr: { d: finalPath },
     duration: 1.5,
     ease: "elastic.out(1,0.2)",
+  });
+});
+
+let main = document.querySelector("main");
+main.addEventListener("mousemove", (mouseEvent) => {
+  gsap.to(".cursor", {
+    x: mouseEvent.x,
+    y: mouseEvent.y,
+    ease: "back.out",
   });
 });
