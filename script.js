@@ -24,3 +24,19 @@ gsap.from("h1", {
   delay: 1,
   stagger: 0.3,
 });
+
+let tl = gsap.timeline()
+tl.from("nav p",{
+    y: -30,
+    stagger: .4,
+    delay: 1,
+    opacity: 0,
+    duration: 1,
+})
+gsap.from(".frontText",{
+    y: 20,
+    delay: 1,
+    opacity: 0,
+    duration: 3,
+    scale: .4
+})
